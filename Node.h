@@ -6,16 +6,25 @@
 //
 #ifndef Node_h
 #define Node_h
-//test
+/*
 struct node
 {
-    int data;
-    struct node *nextPtr;
+  int data;
+  struct node *nextPtr;
 };
 
 typedef struct node Node;
 typedef struct node* NodePtr;
+*/
+typedef struct node{
+  struct node* nextPtr;
+  int order_number;
+  int q;
+} order;
 
+typedef order* orderPtr;
+
+/*
 void enqueue(NodePtr * head, NodePtr* tail, int x){
   NodePtr new_node = (NodePtr)malloc(sizeof(Node));
   if(new_node){ 
@@ -41,6 +50,6 @@ int dequeue(NodePtr* head, NodePtr* tail){
   return 0;
 }
 
-
+*/
 
 #endif

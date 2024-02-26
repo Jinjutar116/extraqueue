@@ -8,19 +8,26 @@
 int main(int argc , char **argv) {
   Queue  q;
   main_init(&q);
-  int i,x; 
+  int i = 1, x = 1; 
 
-  for(i = 1; i < argc; i++){
+  while(i < argc){
     if(strcmp(argv[i], "x") == 0) {
       if(q.size != 0) {
-        x = dequeue_struct(&q);
-        printf("dequeing %d\n", x);
+        printf("Customer no: %d\n", x++);
+        dequeue_struct(&q);
       }
       else dequeue_struct(&q);
+      i++;
     }
     else {
-      enqueue_struct(&q, atoi(argv[i]));
+      printf("My order is %d\n", atoi(argv[i]));
+      enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
+      i+=2;
     }
+  }
+  printf("=================================================\n");
+  if(q.size != 0){
+    printf("  There are %d ppl left in queue\n", q.size);
   }
   return 0;
 }
